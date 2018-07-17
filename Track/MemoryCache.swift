@@ -160,7 +160,7 @@ open class MemoryCache {
         }
     }
     
-    fileprivate var _ageLimit: TimeInterval = DBL_MAX
+    fileprivate var _ageLimit: TimeInterval = .greatestFiniteMagnitude
     
     /**
      Memory cache object age limit
@@ -227,14 +227,14 @@ open class MemoryCache {
     /**
      A share memory cache
      */
-    open static let shareInstance = MemoryCache()
+    public static let shareInstance = MemoryCache()
     
     /**
      Design constructor
      */
     public init () {
-        NotificationCenter.default.addObserver(self, selector: #selector(MemoryCache._didReceiveMemoryWarningNotification), name: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MemoryCache._didEnterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MemoryCache._didReceiveMemoryWarningNotification), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MemoryCache._didEnterBackgroundNotification), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
 }
 

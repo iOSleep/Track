@@ -88,24 +88,24 @@ open class Cache {
     /**
      cache name, used to create disk cache folder
      */
-    open let name: String
+    public let name: String
     
     /**
      Thread safe memeory cache
      */
-    open let memoryCache: MemoryCache
+    public let memoryCache: MemoryCache
     
     /**
      Thread safe disk cache
      */
-    open let diskCache: DiskCache
+    public let diskCache: DiskCache
     
     fileprivate let _queue: DispatchQueue = DispatchQueue(label: TrackCachePrefix + (String(describing: Cache.self)), attributes: DispatchQueue.Attributes.concurrent)
     
     /**
      A share cache, contain a thread safe memory cache and a thread safe diskcache
      */
-    open static let shareInstance = Cache(name: TrackCacheDefauleName)!
+    public static let shareInstance = Cache(name: TrackCacheDefauleName)!
     
     /**
      Design constructor
@@ -115,7 +115,7 @@ open class Cache {
      - parameter path: diskcache path
      */
     public init?(name: String, path: String) {
-        if name.characters.count == 0 || path.characters.count == 0 {
+        if name.count == 0 || path.count == 0 {
             return nil
         }
         self.diskCache = DiskCache(name: name, path: path)!

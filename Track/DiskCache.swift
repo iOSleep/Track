@@ -125,12 +125,12 @@ open class DiskCache {
     /**
      DiskCache folder name
      */
-    open let name: String
+    public let name: String
     
     /**
      DiskCache folder path URL
      */
-    open let cacheURL: URL
+    public let cacheURL: URL
     
     /**
      Disk cache object total count
@@ -196,7 +196,7 @@ open class DiskCache {
         }
     }
     
-    fileprivate var _ageLimit: TimeInterval = DBL_MAX
+    fileprivate var _ageLimit: TimeInterval = .greatestFiniteMagnitude
     
     /**
      Disk cache object age limit
@@ -225,7 +225,7 @@ open class DiskCache {
     /**
      A share disk cache, name "defauleTrackCache" path "Library/Caches/"
      */
-    open static let shareInstance = DiskCache(name: TrackCacheDefauleName)!
+    public static let shareInstance = DiskCache(name: TrackCacheDefauleName)!
     
     /**
      Design constructor
@@ -237,7 +237,7 @@ open class DiskCache {
      - returns: if no name or path will be fail
      */
     public init?(name: String, path: String) {
-        if name.characters.count == 0 || path.characters.count == 0 {
+        if name.count == 0 || path.count == 0 {
             return nil
         }
         self.name = name
