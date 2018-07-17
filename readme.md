@@ -108,16 +108,10 @@ platform :ios, '8.0'
 use_frameworks!
 ```
 
-Support Swift 3.0
+Support Swift 4.0
 
 ```
 pod 'Track'
-```
-
-Support Swift 2.3
-
-```
-pod 'Track', :git => 'https://github.com/maquannene/Track.git', :branch => 'feature/S-2.3'
 ```
 
 If you want to use the new features of Track
