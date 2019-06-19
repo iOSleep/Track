@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         //          Track
         let cache: Cache = Cache.shareInstance
         
+        let myCache = Cache.init(name: "history")
+        
         //        for i in 1 ... 5 {
         //            cache.set(object: "\(i)", forKey: "\(i)")
         //        }
